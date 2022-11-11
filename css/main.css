@@ -96,17 +96,37 @@ textarea {
    ========================================================================== */
 
 
-html {
-  background-color: black;
+html, 
+header, 
+footer {
+  background-color: #222;
   height: 100%;
   width: 100%;
+  font-size: 16px;
 }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  padding: 2em;
+  font-size: 1.25em;
+  padding: 0em 2em;
   height: 100%;
   color: #fff;
+}
+
+
+header,
+footer,
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /** outline: 1px solid red; **/
+}
+
+header,
+footer {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .wrapper {
@@ -117,22 +137,52 @@ body {
   align-items: center;
 }
 
+header h1 {
+    font-family: 'Dancing Script', sans-serif;
+    font-size: 3em;
+}
+
+main {
+    background-color: #222;
+    height: 100%;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
+
+main p {
+    font-size: 1.35em;
+}
+
+
+p span {
+    font-family: 'Lora', sans-serif;
+    font-weight: 700;
+}
+
 .div-1, .div-2, .div-3 {
   /*give the divs a width of 30%, add display:flex, set justify-content and align-items to center*/
   color: #fff;
   line-height: 1.5em;
   font-size: 1.25em;
-  height: 300px;
+  height: 100%;
   /* width: 30%; */
   /* width commented out so that columns stack on a mobile screen & can be adjusted for others in media queries*/
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #555;
 }
 
 
-
-
+footer {
+    border-top: 1px solid #fff;
+  }
+  
+  footer i {
+    padding: 30px 20px 0 0;
+    font-size: 1.25em;
+  }
+  
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -213,15 +263,32 @@ body {
    Modify as content requires.
    ========================================================================== */
 
+@media all and (max-width: 768px) {
+    body {
+        padding: 1em;
+    }
+    
+}
+
 @media all and (min-width: 1200px) {
+    header h1 {
+        font-size: 4em;
+    }
+    
+    main p {
+        font-size: 1.875em;
+    }
+    
     .div-1, .div-2, .div-3 {
         flex-basis: 30%;
+        border-bottom: none;
         /* adding this makes columns stack on top of each other on mobile screen but in a row on desktop*/
     }
     
-    .div-1, .div-2 {
+    .div-2 p {
         border-right: 1px solid #555;
-        padding-right: 30px;
+        border-left: 1px solid #555;
+        padding: 0 30px;
     }
 }
 
